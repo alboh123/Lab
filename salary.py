@@ -42,3 +42,19 @@ class SalaryAnalyzer(QMainWindow):
         # Например, вывод в виде текстовых меток
         text_label = QLabel(f"{self.data}")
         self.layout.addWidget(text_label)
+        def plot_salary_growth(self):
+        # Построение графиков для анализа роста зарплаты
+        plt.plot(self.data['Year'], self.data['MaleSalary'], label='Зарплата мужчин')
+        plt.plot(self.data['Year'], self.data['FemaleSalary'], label='Зарплата женщин')
+        plt.xlabel('Год')
+        plt.ylabel('Зарплата')
+        plt.title('Зарплата мужчин и женщин в России за последние 15 лет')
+        plt.legend()
+        plt.show()
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = SalaryAnalyzer()
+    window.show()
+    sys.exit(app.exec_())
+
