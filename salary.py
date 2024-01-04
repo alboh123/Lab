@@ -25,3 +25,15 @@ class SalaryAnalyzer(QMainWindow):
         self.central_widget.setLayout(self.layout)
 
         self.data = None
+    def load_data(self):
+        options = QFileDialog.Options()
+        file_name, _ = QFileDialog.getOpenFileName(self, "Открыть файл с данными", "", "CSV Files (*.csv);;All Files (*)", options=options)
+
+        if file_name:
+            self.data = pd.read_csv(file_name)
+
+            # Вывод данных на экран
+            self.display_data()
+
+            # Построение графиков
+            self.plot_salary_growth()
