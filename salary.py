@@ -37,3 +37,8 @@ class SalaryAnalyzer(QMainWindow):
 
             # Построение графиков
             self.plot_salary_growth()
+    def display_data(self):
+        # Вывод данных на экран
+        # Например, вывод в виде текстовых меток
+        text_label = QLabel(f"{self.data}")
+        self.layout.addWidget(text_label)
